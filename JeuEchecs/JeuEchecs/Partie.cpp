@@ -8,6 +8,13 @@
 #include "Plateau.h"
 #include <cstring>
 
+#include "Roi.h"
+#include "Reine.h"
+#include "Fou.h"
+#include "Tour.h"
+#include "Cavalier.h"
+#include "Pion.h"
+
 
 using namespace std;
 

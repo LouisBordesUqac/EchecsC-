@@ -23,58 +23,10 @@ public:
 	int getX();
 	int getY();
 	bool isWhite();
-	bool isBlack();
+	bool isBlack();	
 
 	virtual bool mouvementValide(Plateau& e, int x, int y);
 	virtual char assignerPiece();
 };
 
-
-class Roi : public Piece
-{
-public:
-	Roi(bool white);
-	bool mouvementValide(Plateau& e, int x, int y);
-	char assignerPiece();
-};
-
-class Fou : virtual public Piece
-{
-public:
-	Fou(bool white, bool left);
-	bool mouvementValide(Plateau& e, int x, int y);
-	char assignerPiece();
-};
-
-class Tour : virtual public Piece
-{
-public:
-	Tour(bool white, bool left);
-	bool mouvementValide(Plateau& e, int x, int y);
-	char assignerPiece();
-};
-
-class Reine : public Fou, public Tour
-{
-public:
-	Reine(bool white);
-	bool mouvementValide(Plateau& e, int x, int y);
-	char assignerPiece();
-};
-
-class Cavalier : virtual public Piece
-{
-public:
-	Cavalier(bool white, bool left);
-	bool mouvementValide(Plateau& e, int x, int y);
-	char assignerPiece();
-};
-
-class Pion : virtual public Piece
-{
-public:
-	Pion(int x, bool white);
-	bool mouvementValide(Plateau& e, int x, int y);
-	char assignerPiece();
-};
 #endif

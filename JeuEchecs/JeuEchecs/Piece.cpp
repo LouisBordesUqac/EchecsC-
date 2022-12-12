@@ -4,6 +4,13 @@
 #include "Plateau.h"
 #include <cmath>
 
+#include "Roi.h"
+#include "Reine.h"
+#include "Fou.h"
+#include "Tour.h"
+#include "Cavalier.h"
+#include "Pion.h"
+
 using namespace std;
 
 /////////////////////////////////////////////////////////////////////////
@@ -212,19 +219,16 @@ bool Pion::mouvementValide(Plateau& e, int x, int y)
 
     if ((pos_y == 2 && couleur) || (pos_y == 7 && !couleur))
     {
-        //Le pion peut avancer de 1 ou 2 cases ou en diagonale si piece adverse
         if ((x == pos_x && y == pos_y + 2 && couleur) || (x == pos_x && y == pos_y - 2 && !couleur)) //cas avancer de 2 cases
         {
             if (couleur && e.getPiece(pos_x, pos_y + 1) == NULL && e.getPiece(pos_x, pos_y + 2) == NULL)
             {
-                cout << "Le mouvement du Pion est valide." << endl;
                 estValide = true;
             }
             else
             {
                 if (!couleur && e.getPiece(pos_x, pos_y - 1) == NULL && e.getPiece(pos_x, pos_y - 2) == NULL)
                 {
-                    cout << "Le mouvement du Pion est valide." << endl;
                     estValide = true;
                 }
             }
@@ -235,7 +239,6 @@ bool Pion::mouvementValide(Plateau& e, int x, int y)
             {
                 if (e.getPiece(x, y) == NULL)
                 {
-                    cout << "Le mouvement du Pion est valide." << endl;
                     estValide = true;
                 }
             }
@@ -246,7 +249,6 @@ bool Pion::mouvementValide(Plateau& e, int x, int y)
                     if (e.getPiece(x, y) != NULL && e.getPiece(x, y)->isWhite() != couleur)
                     {
                         e.enleverPiece(x, y);
-                        cout << "Le mouvement du Pion est valide." << endl;
                         estValide = true;
                     }
                 }
@@ -259,7 +261,6 @@ bool Pion::mouvementValide(Plateau& e, int x, int y)
         {
             if (e.getPiece(x, y) == NULL)
             {
-                cout << "Le mouvement du Pion est valide." << endl;
                 estValide = true;
             }
         }
@@ -270,7 +271,6 @@ bool Pion::mouvementValide(Plateau& e, int x, int y)
                 if (e.getPiece(x, y) != NULL && e.getPiece(x, y)->isWhite() != couleur)
                 {
                     e.enleverPiece(x, y);
-                    cout << "Le mouvement du Pion est valide." << endl;
                     estValide = true;
                 }
             }
@@ -298,13 +298,11 @@ bool Cavalier::mouvementValide(Plateau& e, int x, int y)
             if (e.getPiece(x, y)->isWhite() != couleur)
             {
                 e.enleverPiece(x, y);
-                cout << "Le mouvement du Cavalier est valide." << endl;
                 estValide = true;
             }
         }
         else
         {
-            cout << "Le mouvement du Cavalier est valide." << endl;
             estValide = true;
         }
     }
@@ -341,7 +339,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                     if (xDepart == x && yDepart == y && e.getPiece(x, y)->isWhite() != estBlanche)
                     {
                         e.enleverPiece(x, y);
-                        cout << "Le mouvement du Fou est valide : déplacement Haut Droite" << endl;
                         estValide = true;
                     }
                 }
@@ -349,7 +346,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                 {
                     if (xDepart == x && yDepart == y && estValide == false)
                     {
-                        cout << "Le mouvement du Fou est valide : déplacement Haut Droite" << endl;
                         estValide = true;
                     }
                 }
@@ -369,7 +365,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                         if (xDepart == x && yDepart == y && e.getPiece(x, y)->isWhite() != estBlanche)
                         {
                             e.enleverPiece(x, y);
-                            cout << "Le mouvement du Fou est valide : déplacement Bas Gauche" << endl;
                             estValide = true;
                         }
                     }
@@ -377,7 +372,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                     {
                         if (xDepart == x && yDepart == y && estValide == false)
                         {
-                            cout << "Le mouvement du Fou est valide : déplacement Bas Gauche" << endl;
                             estValide = true;
                         }
                     }
@@ -397,7 +391,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                             if (xDepart == x && yDepart == y && e.getPiece(x, y)->isWhite() != estBlanche)
                             {
                                 e.enleverPiece(x, y);
-                                cout << "Le mouvement du Fou est valide : déplacement Haut Gauche" << endl;
                                 estValide = true;
                             }
                         }
@@ -405,7 +398,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                         {
                             if (xDepart == x && yDepart == y && estValide == false)
                             {
-                                cout << "Le mouvement du Fou est valide : déplacement Haut Gauche" << endl;
                                 estValide = true;
                             }
                         }
@@ -423,7 +415,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                             if (xDepart == x && yDepart == y && e.getPiece(x, y)->isWhite() != estBlanche)
                             {
                                 e.enleverPiece(x, y);
-                                cout << "Le mouvement du Fou est valide : déplacement Bas Droite" << endl;
                                 estValide = true;
                             }
                         }
@@ -431,7 +422,6 @@ bool Fou::mouvementValide(Plateau& e, int x, int y)
                         {
                             if (xDepart == x && yDepart == y && estValide == false)
                             {
-                                cout << "Le mouvement du Fou est valide : déplacement Bas Droite" << endl;
                                 estValide = true;
                             }
                         }
@@ -466,7 +456,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                     if (i == x && e.getPiece(i, y)->isWhite() != couleur)
                     {
                         e.enleverPiece(x, y);
-                        cout << "Le mouvement de la Tour est valide : deplacement Droite" << endl;
                         estValide = true;
                     }
                 }
@@ -474,7 +463,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                 {
                     if (i == x && estValide == false)
                     {
-                        cout << "Le mouvement de la Tour est valide : deplacement Droite" << endl;
                         estValide = true;
                     }
                 }
@@ -491,7 +479,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                         if (i == x && e.getPiece(i, y)->isWhite() != couleur)
                         {
                             e.enleverPiece(x, y);
-                            cout << "Le mouvement de la Tour est valide : deplacement Gauche" << endl;
                             estValide = true;
                         }
                     }
@@ -499,7 +486,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                     {
                         if (i == x && estValide == false)
                         {
-                            cout << "Le mouvement de la Tour est valide : deplacement Gauche" << endl;
                             estValide = true;
                         }
                     }
@@ -516,7 +502,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                             if (i == y && e.getPiece(x, i)->isWhite() != couleur)
                             {
                                 e.enleverPiece(x, y);
-                                cout << "Le mouvement de la Tour est valide : deplacement Bas" << endl;
                                 estValide = true;
                             }
                         }
@@ -524,7 +509,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                         {
                             if (i == y && estValide == false)
                             {
-                                cout << "Le mouvement de la Tour est valide : deplacement Bas" << endl;
                                 estValide = true;
                             }
                         }
@@ -539,7 +523,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                             if (i == y && e.getPiece(x, i)->isWhite() != couleur)
                             {
                                 e.enleverPiece(x, y);
-                                cout << "Le mouvement de la Tour est valide : deplacement Haut" << endl;
                                 estValide = true;
                             }
                         }
@@ -547,7 +530,6 @@ bool Tour::mouvementValide(Plateau& e, int x, int y)
                         {
                             if (i == y && estValide == false)
                             {
-                                cout << "Le mouvement de la Tour est valide : deplacement Haut" << endl;
                                 estValide = true;
                             }
                         }
@@ -572,7 +554,6 @@ bool Reine::mouvementValide(Plateau& e, int x, int y)
 
     if (Tour::mouvementValide(e, x, y) || Fou::mouvementValide(e, x, y))
     {
-        cout << "\nLe mouvement de la Reine est valide." << endl;
         mouvementValide = true;
     }
 

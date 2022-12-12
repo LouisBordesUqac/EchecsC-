@@ -5,8 +5,8 @@ Jeu d'échecs en C++
 - Application console fonctionnelle 
 
 Membres de l'équipe :
-Louis Bordes
+Louis Bordes BORL29060201
 Aminata Barry
 Mame Diarra Mbaye
-Bakeba Diomnaty
-Mariame Sagne
+Bakeba Diomnaty MBAM16569809
+Mariame Sagne SAGM15520309

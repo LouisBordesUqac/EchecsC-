@@ -20,8 +20,8 @@ public:
 	void init(int x, int y, bool white);
 	void deplacer(int x, int y);
 
-	int x();
-	int y();
+	int getX();
+	int getY();
 	bool isWhite();
 	bool isBlack();
 

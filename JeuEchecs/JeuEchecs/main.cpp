@@ -13,7 +13,7 @@ using namespace std;
 
 bool compare(Piece& pa, Piece& pb)
 {
-    return ((pa.x() == pb.x()) && (pa.y() == pb.y()));
+    return ((pa.getX() == pb.getX()) && (pa.getY() == pb.getY()));
 }
 
 void attendre(float temps);

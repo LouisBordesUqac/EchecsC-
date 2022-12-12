@@ -38,7 +38,7 @@ Piece* Plateau::getPiece(int x, int y)
 
 void Plateau::affiche()
 {
-    cout << endl << "  ABCDEFGH" << endl;
+    cout << endl << "  HGFEDCBA" << endl;
     for (int y = 1; y <= 8; ++y)
     {
         cout << y << " ";
@@ -54,7 +54,7 @@ void Plateau::affiche()
         }
         cout << " " << y << endl;
     }
-    cout << "  ABCDEFGH" << endl;
+    cout << "  HGFEDCBA" << endl;
 }
 
 //****************************************
@@ -66,8 +66,8 @@ void Plateau::affiche()
 bool Plateau::placer(Piece* piece)
 {
     if (piece == NULL) return false;
-    int position = (piece->x() - 1) + 8 * (piece->y() - 1);
-    if ((piece->x() >= 1) && (piece->x() <= 8) && (piece->y() >= 1) && (piece->y() <= 8) && echiquier[position] == NULL)
+    int position = (piece->getX() - 1) + 8 * (piece->getY() - 1);
+    if ((piece->getX() >= 1) && (piece->getX() <= 8) && (piece->getY() >= 1) && (piece->getY() <= 8) && echiquier[position] == NULL)
     {
         echiquier[position] = piece;
         return true;
@@ -83,8 +83,8 @@ bool Plateau::placer(Piece* piece)
 
 void Plateau::deplacerPlateau(Piece* p, int x, int y)
 {
-    int xDepart = p->x();
-    int yDepart = p->y();
+    int xDepart = p->getX();
+    int yDepart = p->getY();
 
     enleverPiece(xDepart, yDepart);
     p->deplacer(x, y);

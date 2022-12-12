@@ -27,7 +27,7 @@ public:
 
     void jouerPartie();
     void verifCoordonnees();
-    void creerPieces();
+    
 
     int roiEnEchec();
     int convertPosX(char x);

@@ -53,28 +53,28 @@ int Partie::convertPosX(char xval) {
 
     switch (xval) {
     case 'A':
-        return 1;
+        return 8;
         break;
     case 'B':
-        return 2;
-        break;
-    case 'C':
-        return 3;
-        break;
-    case 'D':
-        return 4;
-        break;
-    case 'E':
-        return 5;
-        break;
-    case 'F':
-        return 6;
-        break;
-    case 'G':
         return 7;
         break;
+    case 'C':
+        return 6;
+        break;
+    case 'D':
+        return 5;
+        break;
+    case 'E':
+        return 4;
+        break;
+    case 'F':
+        return 3;
+        break;
+    case 'G':
+        return 2;
+        break;
     case 'H':
-        return 8;
+        return 1;
         break;
     default:
         return -1;

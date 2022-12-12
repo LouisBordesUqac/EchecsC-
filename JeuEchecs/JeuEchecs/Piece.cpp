@@ -62,7 +62,7 @@ void Piece::deplacer(int x, int y)
 // Getter de la valeur x
 //
 //****************************************
-int Piece::x()
+int Piece::getX()
 {
     return pos_x;
 }
@@ -72,7 +72,7 @@ int Piece::x()
 // Getter de la valeur y
 //
 //****************************************
-int Piece::y()
+int Piece::getY()
 {
     return pos_y;
 }
@@ -320,8 +320,8 @@ bool Cavalier::mouvementValide(Plateau& e, int x, int y)
 
 bool Fou::mouvementValide(Plateau& e, int x, int y)
 {
-    int xDepart = this->x();
-    int yDepart = this->y();
+    int xDepart = this->getX();
+    int yDepart = this->getY();
     bool estBlanche = this->isWhite();
     bool estValide = false;
     int ecartX = x - xDepart;

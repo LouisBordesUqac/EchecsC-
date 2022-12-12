@@ -4,6 +4,8 @@
 
 #include "Piece.h"
 #include "Plateau.h"
+#include "JoueurBlanc.h"
+#include "JoueurNoir.h"
 #include "Joueur.h"
 #include <string>
 #include <time.h>
@@ -17,7 +19,6 @@ private:
     Plateau echiquier;
     JoueurBlanc joueurBlanc;
     JoueurNoir joueurNoir;
-    clock_t tempsPartie;
 
     bool joueurActuel;
     int x;
@@ -28,7 +29,6 @@ public:
     void jouerPartie();
     void verifCoordonnees();
     
-
     int roiEnEchec();
     int convertPosX(char x);
     int convertPosY(char y);

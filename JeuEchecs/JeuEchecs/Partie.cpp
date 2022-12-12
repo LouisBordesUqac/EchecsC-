@@ -222,7 +222,7 @@ void Partie::jouerPartie()
 
 
     joueurActuel = true;    //Joueur blanc = vrai / Joueur noir = faux
-
+    clock_t tempsTour;
     int roiEnEchec = 0;
     int deplacementX;
     int deplacementY;
@@ -354,7 +354,7 @@ void Partie::jouerPartie()
         bool mouvementValide = false; // Définition du booleen pour éviter que le mouvement soit effectué par erreur
         int roiEnEchec = -1;          // Définition de la variable qui indique la situation du roi
         echiquier.affiche();          // Affichage de l'échiquier à chaque nouveau coup
-
+        tempsTour = clock();
 
         // Indique le joueur actif
         if (joueurActuel)
@@ -447,8 +447,19 @@ void Partie::jouerPartie()
 
         }
 
-        joueurActuel = !joueurActuel;   //Le joueur actif change
+        tempsTour = clock() - tempsTour;
 
-        //partieFinie = true; //provisoire : afin de ne pas boucler indéfininiment tant que ce n'est pas fini
+        if (joueurActuel) {
+            joueurBlanc.ajouterTempsJoueur(tempsTour);
+        }
+        if (joueurActuel) {
+            joueurNoir.ajouterTempsJoueur(tempsTour);
+        }
+        joueurActuel = !joueurActuel;   //Le joueur actif change
+        
+        tempsTour = 0;
     }
+
+    joueurBlanc.afficherTempsJoueur(joueurActuel);
+    joueurNoir.afficherTempsJoueur(!joueurActuel);
 }

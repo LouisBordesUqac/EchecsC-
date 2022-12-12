@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Joueur.h"
+#include "JoueurBlanc.h"
+#include "JoueurNoir.h"
 
 using namespace std;
 
@@ -55,15 +57,21 @@ void Joueur::placerPieces(Plateau& echiquier)
 }
 
 
-/*
-bool JoueurBlanc::isWhite()
+void Joueur::ajouterTempsJoueur(clock_t tempsTourActuel) 
 {
-    return true;
+    tempsJoueur = clock() + tempsTourActuel;
 }
 
-bool JoueurNoir::isWhite()
+void Joueur::afficherTempsJoueur(bool couleur) 
 {
-    return false;
-}
-*/
+    float tempsEnSecondes;
+    
+    tempsEnSecondes = tempsJoueur / CLOCKS_PER_SEC;
+    if (couleur) {
+        cout << "Le joueur blanc a joue pendant " << ((float)tempsJoueur / CLOCKS_PER_SEC) / 60 << " minutes" << endl;
+    }
+    else {
+        cout << "Le joueur noir a joue pendant " << ((float)tempsJoueur / CLOCKS_PER_SEC) / 60 << " minutes" << endl;
+    }
 
+}

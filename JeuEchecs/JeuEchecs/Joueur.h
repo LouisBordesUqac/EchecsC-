@@ -15,23 +15,10 @@ protected:
 
 public:
 
+	virtual void ajouterTempsJoueur(clock_t tempsTourActuel);
+	virtual void afficherTempsJoueur(bool couleur);
 	Joueur(bool white);
 	void placerPieces(Plateau& plateau);
 
 };
-
-
-class JoueurBlanc : public Joueur
-{
-public:
-	JoueurBlanc();
-};
-
-
-class JoueurNoir : public Joueur
-{
-public:
-	JoueurNoir();
-};
-
 #endif

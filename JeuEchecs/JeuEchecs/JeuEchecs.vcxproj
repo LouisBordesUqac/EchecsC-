@@ -130,6 +130,8 @@
     <ClInclude Include="Cavalier.h" />
     <ClInclude Include="Fou.h" />
     <ClInclude Include="Joueur.h" />
+    <ClInclude Include="JoueurBlanc.h" />
+    <ClInclude Include="JoueurNoir.h" />
     <ClInclude Include="Partie.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Pion.h" />
@@ -142,6 +144,8 @@
     <ClCompile Include="Cavalier.cpp" />
     <ClCompile Include="Fou.cpp" />
     <ClCompile Include="Joueur.cpp" />
+    <ClCompile Include="JoueurBlanc.cpp" />
+    <ClCompile Include="JoueurNoir.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Partie.cpp" />
     <ClCompile Include="Piece.cpp" />
